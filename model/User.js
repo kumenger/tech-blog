@@ -13,16 +13,20 @@ User.init(
             allowNull: false,
         },
         first_name:{
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull:false
         },
         last_name:{
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull:false
         },
         email:{
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
+            unique: true,
+            validator:{
+                isEmail: { args: true, msg: 'email format is not correct' },
+            }
         },
         password:{
             type: DataTypes.STRING,
