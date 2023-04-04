@@ -10,6 +10,10 @@ Post.init(
       autoIncrement: true,
       allowNull: false,
     },
+    post_title:{
+      type: DataTypes.STRING,
+      allowNull:false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
