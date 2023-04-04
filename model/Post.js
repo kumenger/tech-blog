@@ -11,9 +11,10 @@ Post.init(
       allowNull: false,
     },
     user_id: {
+      type: DataTypes.INTEGER,
       references: {
-        model: "user",
-        key: "id",
+        model:"user",
+        key:"id",
       },
     },
     content_details: {
@@ -25,9 +26,11 @@ Post.init(
         defaultValue: DataTypes.NOW,
     },
     comments:{
+      type: DataTypes.INTEGER,
+      allowNull:true,
         references: {
-            model: "comment",
-            key: "id",
+            model:"comment",
+            key: "id"
           },
     }
   },

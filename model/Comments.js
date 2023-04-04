@@ -12,8 +12,9 @@ Comment.init(
       allowNull: false,
     },
     user_id: {
+    type: DataTypes.INTEGER,
       references: {
-        model: "user",
+        model:"user",
         key: "id",
       },
     },
@@ -25,13 +26,17 @@ Comment.init(
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
     },
+    comment_postID: {
+      type: DataTypes.INTEGER,
+     
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "comment",
+    modelName:"comment",
   }
 );
 
