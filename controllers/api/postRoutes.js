@@ -19,24 +19,24 @@ router.post("/newpost", async (req, res) => {
     res.status(500).json(error);
   }
 });
-router.get("/allpost", async (req, res) => {
-  try {
-    let allPosts = await Post.findAll({});
-    if (!allPosts) {
-      res.status(404).json({ message: "no post found" });
-    } else {
-        const posts = allPosts.map((post) =>
-        post.get({ plain: true })
-      );
-      res.render('homepage', 
-        {posts}
-      );
-      //res.json(allPosts)
-    }
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+// router.get("/allpost", async (req, res) => {
+//   try {
+//     let allPosts = await Post.findAll({});
+//     if (!allPosts) {
+//       res.status(404).json({ message: "no post found" });
+//     } else {
+//         const posts = allPosts.map((post) =>
+//         post.get({ plain: true })
+//       );
+//       res.render('homepage', 
+//         {posts}
+//       );
+//       //res.json(allPosts)
+//     }
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// });
 router.get("/:id", async (req, res) => {
   try {
     let post = await Post.findOne({ where: { id: req.params.id } });
